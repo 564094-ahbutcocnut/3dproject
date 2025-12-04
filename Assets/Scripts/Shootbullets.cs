@@ -16,6 +16,8 @@ public class Shootbullets : MonoBehaviour
     public float moveSpeed = 5f;
     public GameObject objectToSpawn;
 
+    public Transform spawnPosition;
+
 
     void Update()
     {
@@ -55,7 +57,8 @@ public class Shootbullets : MonoBehaviour
             Debug.Log("Wait for  1 seconds");
             yield return new WaitForSeconds(1f);
 
-            Instantiate(objectToSpawn);
+            Instantiate(objectToSpawn, spawnPosition.transform.position, spawnPosition.transform.rotation);
+
 
 
             // end of coroutine
