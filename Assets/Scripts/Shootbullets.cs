@@ -29,35 +29,11 @@ public class Shootbullets : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
 
-            Debug.Log("Move forward for 2.5 seconds");
-
-            // Move the object forward (in the object's local forward direction) 
-            float timer = 0f;
-            float moveduration = 2.5f;
-
-            while (timer < moveduration)
-            {
-                transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-                timer += Time.deltaTime;
-                yield return null;
-            }
-
-
-            Debug.Log("Move back for 0.5 seconds");
-            timer = 0f;
-            moveduration = 0.5f;
-            while (timer < moveduration)
-            {
-                transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
-                timer += Time.deltaTime;
-                yield return null;
-            }
-
-
-            Debug.Log("Wait for  1 seconds");
             yield return new WaitForSeconds(1f);
 
-            Instantiate(objectToSpawn, spawnPosition.transform.position, spawnPosition.transform.rotation);
+            GameObject newObject = Instantiate(objectToSpawn, spawnPosition.transform.position, transform.rotation);
+            //Debug.Log(newObject);
+           // newObject.transform.SetParent(spawnPosition.transform);
 
 
 

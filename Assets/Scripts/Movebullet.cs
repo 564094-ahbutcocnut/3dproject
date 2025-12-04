@@ -16,22 +16,27 @@ public class MoveBullet : MonoBehaviour
     public float moveSpeed = 5f;
     public GameObject objectToSpawn;
 
-
-    void Update()
+    private void Awake()
     {
+        transform.Rotate(180, 0, 0);
+    }
+    void Update()
+    {        
         ExampleCoroutine();
     }
+
+
 
     IEnumerator ExampleCoroutine()
     {
         for (int i = 0; i < 5; i++)
         {
 
-            Debug.Log("Move forward for 2.5 seconds");
+            Debug.Log("Move forward for 5 seconds");
 
             // Move the object forward (in the object's local forward direction) 
             float timer = 0f;
-            float moveduration = 2.5f;
+            float moveduration = 5f;
 
             while (timer < moveduration)
             {
@@ -41,21 +46,10 @@ public class MoveBullet : MonoBehaviour
             }
 
 
-            Debug.Log("Move back for 0.5 seconds");
-            timer = 0f;
-            moveduration = 0.5f;
-            while (timer < moveduration)
-            {
-                transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
-                timer += Time.deltaTime;
-                yield return null;
-            }
-
-
             Debug.Log("Wait for  1 seconds");
             yield return new WaitForSeconds(1f);
 
-            Instantiate(objectToSpawn);
+
 
 
             // end of coroutine
