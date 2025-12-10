@@ -16,7 +16,8 @@ public class MoveBullet : MonoBehaviour
     public float moveSpeed = 5f;
     public GameObject objectToSpawn;
 
-    private void Awake()
+    private
+        void Awake()
     {
         transform.Rotate(180, 0, 0);
     }

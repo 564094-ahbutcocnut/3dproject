@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+
     [Header("Movement")]
     public float moveSpeed = 6f;
     public float rotationSpeed = 120f;
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
     }
 
     private void Update()
@@ -41,6 +44,8 @@ public class PlayerController : MonoBehaviour
             // Rotate using horizontal input
             transform.Rotate(Vector3.up * horizontalInput * rotationSpeed * Time.deltaTime);
         }
+
+
 
         // Jump
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
