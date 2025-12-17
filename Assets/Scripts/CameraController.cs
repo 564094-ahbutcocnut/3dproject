@@ -25,6 +25,7 @@ public class CameraController : MonoBehaviour
     public void HandleInput()
     {
         Vector2 inputDelta = Vector2.zero;
+        /*
 
         if (InputDelta.GetMouseButton(0))
         {
@@ -33,12 +34,12 @@ public class CameraController : MonoBehaviour
 
         _yaw += inputDelta.x * sensitivity * Time.deltaTime;
         _pitch -= inputDelta.y * sensitivity * Time.deltaTime;
-
+        */
     }
 
     void RotateCamera(Quaternion rotation)
     {
-        Vector3 positionOffset = rotation * new Vector3(0, 0, -_distanceFromTarget)
+        Vector3 positionOffset = rotation * new Vector3(0, 0, -_distanceFromTarget);
         transform.position = _target.position + positionOffset;
         transform.rotation = rotation;
     }
